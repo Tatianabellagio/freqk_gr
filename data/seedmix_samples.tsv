@@ -1,0 +1,9 @@
+sample_id	r1	r2
+SEEDMIX_S1	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S1-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S1-1.2_P.fq.gz
+SEEDMIX_S2	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S2-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S2-1.2_P.fq.gz
+SEEDMIX_S3	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S3-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S3-1.2_P.fq.gz
+SEEDMIX_S4	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S4-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S4-1.2_P.fq.gz
+SEEDMIX_S5	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S5-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S5-1.2_P.fq.gz
+SEEDMIX_S6	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S6-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S6-1.2_P.fq.gz
+SEEDMIX_S7	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S7-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S7-1.2_P.fq.gz
+SEEDMIX_S8	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S8-1.1_P.fq.gz	/home/tbellagio/scratch/pang/grenenet_reads/seed_mix/S8-1.2_P.fq.gz
