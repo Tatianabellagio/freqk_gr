@@ -67,9 +67,9 @@ def select_samples(samples: list[dict], args) -> list[dict]:
         dates = set(args.date)
         selected = [s for s in selected if s["date"] in dates]
 
-    if args.pot:
-        pots = {p.zfill(2) for p in args.pot}
-        selected = [s for s in selected if s["pot"] in pots]
+    if args.plot:
+        plots = {p.zfill(2) for p in args.plot}
+        selected = [s for s in selected if s["plot"] in plots]
 
     return selected
 
@@ -81,7 +81,7 @@ def main():
     parser.add_argument("--site",  nargs="+", metavar="XX",   help="Site number(s) e.g. 04 05")
     parser.add_argument("--year",  nargs="+", metavar="YYYY", help="Year(s) e.g. 2018 2019")
     parser.add_argument("--date",  nargs="+", metavar="YYYYMMDD", help="Exact collection date(s)")
-    parser.add_argument("--pot",   nargs="+", metavar="XX",   help="Pot number(s) e.g. 03 07")
+    parser.add_argument("--plot",  nargs="+", metavar="XX",   help="Plot number(s) e.g. 03 07")
 
     # Behaviour
     parser.add_argument("--k", default="31", help="k-mer size passed to run_freqk.sh (default: 31)")
@@ -114,11 +114,11 @@ def main():
         sys.exit(0)
 
     # Summary table
-    print(f"\n{'Sample':<25} {'Site':>4} {'Pot':>3} {'Date':>10} {'Year':>4} {'Done?':>6}")
+    print(f"\n{'Sample':<25} {'Site':>4} {'Plot':>4} {'Date':>10} {'Year':>4} {'Done?':>6}")
     print("-" * 60)
     for s in selected:
         done = "yes" if result_exists(s, args.k) else "no"
-        print(f"{s['sample_id']:<25} {s['site']:>4} {s['pot']:>3} {s['date']:>10} {s['year']:>4} {done:>6}")
+        print(f"{s['sample_id']:<25} {s['site']:>4} {s['plot']:>4} {s['date']:>10} {s['year']:>4} {done:>6}")
     print(f"\nTotal: {len(selected)} sample(s) | k={args.k}")
 
     if args.dry_run:
