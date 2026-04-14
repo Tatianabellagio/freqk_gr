@@ -4,7 +4,7 @@
 #SBATCH --error=/home/tbellagio/scratch/freqk_gr/logs/freqk_%x_%j.err
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --time=04:00:00
 # =============================================================================
 # run_freqk.sh
@@ -42,6 +42,9 @@ READS_COMBINED=${OUT_DIR}/all.fq.gz
 COUNTS_BY_ALLELE=${OUT_DIR}/${SAMPLE_ID}.counts_by_allele.k${K}.tsv
 RAW_COUNTS=${OUT_DIR}/${SAMPLE_ID}.raw_kmer_counts.k${K}.tsv
 AF_OUT=${OUT_DIR}/${SAMPLE_ID}.allele_frequencies.k${K}.tsv
+
+# --- Clean up any stale intermediate files from a previous failed run ----------
+rm -f "${INDEX}" "${VAR_INDEX}" "${REF_INDEX}" "${READS_COMBINED}"
 
 echo "==== freqk: ${SAMPLE_ID} | site=${SITE} | k=${K} ===="
 echo "R1: ${R1}"
