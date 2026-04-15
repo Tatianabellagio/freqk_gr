@@ -27,9 +27,14 @@ CHUNKSIZE = 50_000
 print(f"Rounding {IN_FILE} to {DECIMALS} decimals → {TMP_FILE}")
 
 first = True
-reader = pd.read_csv(IN_FILE, index_col=["chrom","pos"], chunksize=CHUNKSIZE)
+reader = pd.read_csv(
+    IN_FILE,
+    dtype={"chrom": str, "pos": int},
+    chunksize=CHUNKSIZE
+)
 with gzip.open(TMP_FILE, "wt") as fout:
     for i, chunk in enumerate(reader):
+        chunk = chunk.set_index(["chrom", "pos"])
         num_cols = chunk.select_dtypes(include="float").columns
         chunk[num_cols] = chunk[num_cols].round(DECIMALS)
         chunk.to_csv(fout, header=first)
