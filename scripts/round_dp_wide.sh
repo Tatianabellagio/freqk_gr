@@ -8,6 +8,8 @@
 #SBATCH --time=01:00:00
 
 set -euo pipefail
+export PYTHONPATH="${PYTHONPATH:-}"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:-}"
 eval "$(conda shell.bash hook)"
 conda activate pang
 
