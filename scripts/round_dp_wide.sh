@@ -9,7 +9,7 @@
 
 set -euo pipefail
 eval "$(conda shell.bash hook)"
-conda activate python-3.11
+conda activate pang
 
 python3 - << 'EOF'
 import gzip, sys
