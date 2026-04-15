@@ -30,6 +30,7 @@ first = True
 reader = pd.read_csv(
     IN_FILE,
     dtype={"chrom": str, "pos": int},
+    parse_dates=False,
     chunksize=CHUNKSIZE
 )
 with gzip.open(TMP_FILE, "wt") as fout:
