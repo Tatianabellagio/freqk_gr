@@ -102,6 +102,13 @@ step "call" \
     --counts "$COUNTS_BY_ALLELE" \
     --output "$AF_OUT"
 
+# --- Extract variant positions from deduplicated index before cleanup ---------
+# ref_index rows correspond 1-to-1 with counts_by_allele rows
+# format: i,chrom,pos,seq,...  → extract chrom,pos only
+VARIANT_POS=${OUT_DIR}/${SAMPLE_ID}.variant_positions.k${K}.tsv
+cut -d',' -f2,3 "$REF_INDEX" > "$VARIANT_POS"
+echo "Variant positions written: $(wc -l < "$VARIANT_POS") variants -> $VARIANT_POS"
+
 # --- Cleanup intermediate files -----------------------------------------------
 rm -f "${READS_COMBINED}" "${INDEX}" "${VAR_INDEX}" "${REF_INDEX}"
 
